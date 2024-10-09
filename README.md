@@ -22,6 +22,7 @@ def is_valid_license(license_name):
 If you want to retrieve all coins regardless of liscense, remove the logic from the following if-block (currently line 86):
 ```
 if is_valid_license(obverse_license) and is_valid_license(reverse_license) and type == 'Standard circulation coin' :
+    coins_data.append(coin_data)
 ```
 
 Currently, I'm only using it to retrieve the fields: 'ID', 'Obverse Copyright', 'Obverse License', 'Obverse Picture', 'Reverse Copyright', 'Reverse License', 'Reverse Picture', 'Issuer'.
