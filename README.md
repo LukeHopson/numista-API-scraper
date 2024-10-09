@@ -1,7 +1,7 @@
-# numstia-API-scraper
-A simple python script that scrapes coins from Numstia's API and writes to a .CSV file.
+# numista-API-scraper
+A simple python script that scrapes coins from Numista's API and writes to a .CSV file.
 
-Requires a Numstia API key to use. 
+Requires a Numista API key to use. 
 
 Will retreive all coins and their information from a specific search query. (Reminder that free API users only get 2000 requests a month).
 # Useage
@@ -26,6 +26,6 @@ if is_valid_license(obverse_license) and is_valid_license(reverse_license) and t
 ```
 
 Currently, I'm only using it to retrieve the fields: 'ID', 'Obverse Copyright', 'Obverse License', 'Obverse Picture', 'Reverse Copyright', 'Reverse License', 'Reverse Picture', 'Issuer'.
-It is possible to add any other fields from the Numstia API by modifying the write_to_csv method. Simply add any deatils you want from here: 
+It is possible to add any other fields from the Numista API by modifying the write_to_csv method. Simply add any deatils you want from here: 
 https://en.numista.com/api/doc/index.php#tag/Catalogue/operation/getType
 
