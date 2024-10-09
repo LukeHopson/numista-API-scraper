@@ -19,7 +19,7 @@ def is_valid_license(license_name):
     return license_name in valid_licenses
 ```
 
-If you want to retrieve all coins regardless of liscense, remove the logic from the following if-block (currently line 86):
+If you want to retrieve all coins regardless of liscense, remove the logic from the following if-block:
 ```
 if is_valid_license(obverse_license) and is_valid_license(reverse_license) and type == 'Standard circulation coin' :
     coins_data.append(coin_data)
