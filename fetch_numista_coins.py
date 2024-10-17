@@ -73,14 +73,14 @@ if __name__ == "__main__":
             coin_id = result['id']
 
             # Check if coin is standard circulation type, remove if you want commems and non-circulated! 
-            type = result ['type'] 
+            type = result['type'] 
             coin_data = fetch_coin_data(coin_id)
             if coin_data:
                 obverse = coin_data.get('obverse', {})
                 reverse = coin_data.get('reverse', {})
                 obverse_license = obverse.get('picture_license_name', '')
                 reverse_license = reverse.get('picture_license_name', '')
-                if is_valid_license(obverse_license) and is_valid_license(reverse_license) and type == 'Standard circulation coin' :
+                if is_valid_license(obverse_license) and is_valid_license(reverse_license) and type == 'Standard circulation coins' :
                     coins_data.append(coin_data)
 
         page += 1  # Increment page number for next iteration
