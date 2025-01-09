@@ -36,7 +36,6 @@ def search_coins_by_query(query, page):
         print(f"Failed to search for coins with query '{query}' on page {page}")
         return []
 
-# I am not using all the possible fields
 def write_to_csv(coins_data):
     with open('coins.csv', mode='w', newline='', encoding='utf-8') as file:
         writer = csv.DictWriter(file, fieldnames=['ID', 'Obverse Copyright', 'Obverse License', 'Obverse Picture', 'Reverse Copyright', 'Reverse License', 'Reverse Picture', 'Issuer'])
@@ -72,20 +71,20 @@ if __name__ == "__main__":
         for result in search_results:
             coin_id = result['id']
 
-            # Check if coin is standard circulation type, remove if you want commems and non-circulated! 
-            type = result['type'] 
+            # Get the type of the coin, (i.e. standard circulation, commemorative)
+            #type = result['type'] # the 'type' key doesn't appear to work in the current version of Numista's API, so I'm commenting this out for now.
+
+            # I am not getting all possible data from the respose, just those that I need for my project, (you can add more like Weight, Size, Material, etc. just look at the Numista API get /type response sample
             coin_data = fetch_coin_data(coin_id)
             if coin_data:
                 obverse = coin_data.get('obverse', {})
                 reverse = coin_data.get('reverse', {})
                 obverse_license = obverse.get('picture_license_name', '')
                 reverse_license = reverse.get('picture_license_name', '')
-                if is_valid_license(obverse_license) and is_valid_license(reverse_license) and type == 'Standard circulation coins' :
+                if is_valid_license(obverse_license) and is_valid_license(reverse_license): #and type == 'Standard circulation coins' :
                     coins_data.append(coin_data)
 
         page += 1  # Increment page number for next iteration
 
     write_to_csv(coins_data)
     print("CSV file generated successfully!")
-
-    # POTENTIALLY WANT TO CHECK :             "type": 'Standard circulation coin', AND MIN YEAR/MAX YEAR
