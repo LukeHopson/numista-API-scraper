@@ -12,7 +12,7 @@ if __name__ == "__main__":
     page = 1
 ```
 
-I am also checking for the lienses of the images for each coin to ensure I can use them without conflict. This reduces the amount of coins retrived considerably, but you can easily add or remove valid licenses by altering the 'valid_licenses' array. 
+I am also checking for the license of the images for each coin to ensure I can use them without conflict. This reduces the amount of coins retrived considerably, but you can easily add or remove valid licenses by altering the 'valid_licenses' array. 
 ```
 def is_valid_license(license_name):
     valid_licenses = ['CC0', 'CC BY-NC-SA', 'CC BY', 'CC BY-SA', 'CC BY-NC'] 
